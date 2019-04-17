@@ -1,4 +1,4 @@
-# Follow-my-paws
+# Follow my paws
 
 <img src="https://i.ibb.co/pwwW5qs/FMP.png" width="500">
 
