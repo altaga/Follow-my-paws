@@ -53,9 +53,23 @@ To connect the sensors to the WIO, it is necessary that the sensors have a Grove
 
 https://www.seeedstudio.com/catalogsearch/result/index/?cat=890&q=Grove
 
-For this project, buy the "Grove Starter Kit Plus" package which is shown in the following photo.
+For this project, i buy the "Grove Starter Kit Plus" package which is shown in the following images.
 
 <img src="https://i.ibb.co/Ltrf0Cx/IMG-20190417-034237.jpg" width="500">
+
+The Content:
+
+<img src="https://www.mouser.mx/images/microsites/grovekitgalileo.jpg" width="500">
+
+El acelerometro Grove no tuvo problema en conectarse a la WIO debido a que este ya cuenta con su entrada Grove como se muestra en el siguiente diagrama.
+
+
+
+Especificamente con el sensor DHT11 tuve realizar lo siguiente para poder conectarlo a la entrada Grove.
+
+
+
+
 
 
 
