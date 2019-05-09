@@ -55,7 +55,7 @@ https://www.seeedstudio.com/catalogsearch/result/index/?cat=890&q=Grove
 
 For this project, i buy the "Grove Starter Kit Plus" package which is shown in the following images.
 
-<img src="https://i.ibb.co/Ltrf0Cx/IMG-20190417-034237.jpg" width="500">
+<img src="https://i.ibb.co/rw19pcY/IMG-20190417-034237.jpg" width="500">
 
 The Content:
 
