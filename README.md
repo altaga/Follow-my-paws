@@ -77,7 +77,7 @@ DHT No-Grove Version:
 
 This is how i connect the module to the grove cable:
 
-<img src="hhttps://i.ibb.co/FDw8Q32/IMG-20190507-194743-2.jpg" width="700">
+<img src="https://i.ibb.co/FDw8Q32/IMG-20190507-194743-2.jpg" width="700">
 
 ## Wio Setup:
 
