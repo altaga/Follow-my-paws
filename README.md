@@ -44,10 +44,10 @@ https://www.seeedstudio.com/Grove-Temperature-Humidity-Sensor-DHT11-p-745.html
 Software: 
 
 - Arduino IDE. 
-- AWS.
+- AWS Cloud Services.
 - Soracom Platform.
 
-## Hardware Hacking
+## Hardware Hacking:
 
 To connect the sensors to the WIO, it is necessary that the sensors have a Grove-type input, such as those shown in the following link.
 
@@ -59,13 +59,38 @@ For this project, i buy the "Grove Starter Kit Plus" package which is shown in t
 
 The Content:
 
-<img src="https://www.mouser.mx/images/microsites/grovekitgalileo.jpg" width="500">
+<img src="https://www.mouser.mx/images/microsites/grovekitgalileo.jpg" width="700">
 
-El acelerometro Grove no tuvo problema en conectarse a la WIO debido a que este ya cuenta con su entrada Grove como se muestra en el siguiente diagrama.
+Las conexiones que se realizaron fueron las siguientes.
+
+<img src="https://i.ibb.co/5ryXPNm/Untitled-Sketch-bb.png" width="700">
+
+El acelerometro Grove no tuvo problema en conectarse a la WIO debido a que este ya cuenta con su entrada Grove, el que se tuvo que hackear fue el DHT, ya que no tenia el DHT version Grove.
+
+Accelerometer Grove Version:
+
+<img src="https://i.ibb.co/0ZT4Lfp/IMG-20190425-212309-2.jpg" width="700">
+
+DHT No-Grove Version:
+
+<img src="https://i.ibb.co/68trBq1/IMG-20190425-212142-2.jpg" width="700">
+
+This is how i connect the module to the grove cable:
+
+<img src="hhttps://i.ibb.co/FDw8Q32/IMG-20190507-194743-2.jpg" width="700">
+
+## Wio Setup:
 
 
 
-Especificamente con el sensor DHT11 tuve realizar lo siguiente para poder conectarlo a la entrada Grove.
+
+
+
+
+
+
+
+
 
 
 
