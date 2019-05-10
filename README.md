@@ -497,19 +497,19 @@ For this project and for our web implementation, we will need 2 tables created i
 
 ## WEB Interface Setup:
 
-La plataforma web podra verse sencilla, pero tiene una implementacion muy interesante en su forma de interactuar con AWS.
+The web platform may look simple, but it has a very interesting implementation in its way of interacting with AWS.
 
-Uno de los problemas mas grandes al trabajar con una pagina web, es el tener variables temporales, debido a que cada vez que se actualice la pagina, perderemos toda la informacion almacenada por las variables, sin embargo en mi implementacion extraigo datos directamente desde DynamoDB, gracias al SDK de javascript que provee AWS, por lo tanto puedo almacenar informacion en una base de datos, como se ve en la imagen anteior en la base de datos que se llama "FMP", y a su ves guardar variables temporales y de acceso rapido para el despliegue y la actualizacion de la pagina web "FMPtemp".
+One of the biggest problems when working with a web page, is having temporary variables, because every time the page is updated, we will lose all the information stored by the variables, however in my implementation I extract data directly from DynamoDB, thanks to the javascript SDK that provides AWS, therefore I can store information in a database, as seen in the above image in the database called "FMP", and save temporary variables and quick access for the deployment and update of the web page "FMPtemp".
 
-- Al momento de desplegar la pagina web, se llama a la base de datos FMPtemp para obtener el status en tiempo real de las mascotas y segun nuestro algorimo determie el estado de la mascota en general, se notificara por colores como se muestra en la imagen de abajo.
+- At the time of displaying the web page, the FMPtemp database is called to obtain the status in real time of the pets and according to our algorithm determine the state of the pet in general, it will be notified by colors as shown in the image down.
 
-https://i.ibb.co/VvZP2wV/web.png
+<img src = "https://i.ibb.co/VvZP2wV/web.png" width = "700">
 
-Cada uno de las patitas representa lo siguiente:
+Each of the legs represents the following:
 
-- Temp: Ambient Temperature 
-- Accel: Max Acceleration 
-- Air Q: Air Quality 
+- Temp: Ambient Temperature
+- Accel: Max Acceleration
+- Air Q: Air Quality
 - Moist: Air Moisture
 
 Color Ranges:
@@ -521,8 +521,28 @@ Color Ranges:
 | Red Range Values     | 15<Temp<18 or 26<Temp<28 |6<Accel<10  | 20<Air Q<30 or 65<Air Q<80  | 102<Moist<122  |
 | Black Range Values   | Temp<15 or 28<Temp       |10<Accel    | Air Q<20 or 80<Air Q        | 122<Moist      |
 
-La calidad del aire se calcula mediante la siguiente formula:
+The air quality is calculated using the following formula using a reduced version to calculate the dew point of the air and according to the books it must be less than 90:
 
-air q=0.5 * (temp + 61.0 + ((temp-68.0)*1.2) + (moist*0.094))   
+Air Q=0.5 * (temp + 61.0 + ((temp-68.0)*1.2) + (moist*0.094))   
 
+## The Final Product:
 
+- We assemble the temperature sensor in the case.
+<img src = "https://i.ibb.co/68trBq1/IMG-20190425-212142-2.jpg" width = "700">
+- We assembled the accelerometer in the case.
+<img src = "https://i.ibb.co/0ZT4Lfp/IMG-20190425-212309-2.jpg" width = "700">
+- Once we finish the assembly we will have something like that.
+<img src = "https://i.ibb.co/7r223Hm/IMG-20190507-193102-2.jpg" width = "700">
+- We keep the cables inside the case.
+<img src = "https://i.ibb.co/QcDRcTn/IMG-20190507-193132-2.jpg" width = "700">
+- We put the Battery for the module to start working.
+<img src = "https://i.ibb.co/t2hvZXw/IMG-20190507-193143-2.jpg" width = "700">
+- We close the case and admire our product.
+<img src = "https://i.ibb.co/7R6tZpf/IMG-20190507-193152-2.jpg" width = "700">
+- We admire more the final product and we notice that we have a hole where the temperature and humidity sensor can detect humidity and temperature.
+<img src = "https://i.ibb.co/y8kfs5f/IMG-20190507-193204-2.jpg" width = "700">
+
+Video: Click on the image. (Time of Our Epic Demo)
+[![FMP - Demo](https://i.ibb.co/pwwW5qs/FMP.png)](https://www.youtube.com/watch?v=z4Z0MjegTp8)
+
+Sorry github does not allow embed videos.
