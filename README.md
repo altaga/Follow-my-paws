@@ -532,7 +532,7 @@ Air Q=0.5 * (temp + 61.0 + ((temp-68.0)*1.2) + (moist*0.094))
 - We assembled the accelerometer in the case.
 <img src = "https://i.ibb.co/0ZT4Lfp/IMG-20190425-212309-2.jpg" width = "700">
 - Once we finish the assembly we will have something like that.
-<img src = "https://i.ibb.co/7r223Hm/IMG-20190507-193102-2.jpg" width = "700">
+<img src = "https://i.ibb.co/Mp36spY/IMG-20190507-193102-2.jpg" width = "700">
 - We keep the cables inside the case.
 <img src = "https://i.ibb.co/QcDRcTn/IMG-20190507-193132-2.jpg" width = "700">
 - We put the Battery for the module to start working.
