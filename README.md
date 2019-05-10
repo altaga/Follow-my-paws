@@ -142,28 +142,34 @@ Note: If you doubt which policy to grab the role, choose the policy (AWSIoTFullA
 <img src = "https://i.ibb.co/T09tFjR/08.png" width = "700">
 
 - We put the name we want to the new role.
-
 <img src = "https://i.ibb.co/8XG3t5t/09.png" width = "700">
 
-- Entramos a la consola de AWS IoT y nos vamos a la seccion de "Settings".
+- We enter the AWS IoT console and go to the "Settings" section.
 
 <img src = "https://i.ibb.co/hFcbkNT/10.png" width = "700">
 
-- Una vez en la seccion de "Settings" copiaremos el "Endpoint", este lo usaremos en la pestaña de la consola de Soracom.
+- Once in the "Settings" section we will copy the "Endpoint", this will be used in the Soracom console tab.
 
 <img src = "https://i.ibb.co/9V4QT8s/11.png" width = "700">
 
+- The next step will be to create the connection between AWS IoT and the other AWS services such as Lambda, SNS and DynamoDB. So for that we will have to create a "Rule" which will serve to generate a bridge between this service and the aforementioned services.
 
+<img src = "https://i.ibb.co/DgGFLZV/12.png" width = "700">
 
+- Once we have our rule, we will configure it as shown in the image.
 
+<img src = "https://i.ibb.co/8BkVC4K/13.png" width = "700">
 
+- Already in this tab we will configure what lambda we want to be activated once a data arrives (not close until we finish configuring the other services)
 
+<img src = "https://i.ibb.co/GfDnW68/14.png" width = "700">
 
+## AWS Lambda Setup
 
+- Creamos una Lambda como se muetra en la pantalla (es bastante intuitivo, no deberian de tener problemas).
 
+<img src = "https://i.ibb.co/0jYH0Fz/15.png" width = "700">
 
+- La lambda debera verse de esta manera, la razon de usar una lambda sera porque necesitamos procesar los datos obtenidos del modulo para dar una respuesta con un mensaje y nuestra plataforma web (haga este proceso 2 veces debido a que vamos a configurar 2 lambdas para conectarnos a los servicios de SNS y DynamoDB)
 
-
-
-
-
+<img src = "https://i.ibb.co/dptCCdH/16.png" width = "700">
