@@ -507,11 +507,22 @@ https://i.ibb.co/VvZP2wV/web.png
 
 Cada uno de las patitas representa lo siguiente:
 
+- Temp: Ambient Temperature 
+- Accel: Max Acceleration 
+- Air Q: Air Quality 
+- Moist: Air Moisture
+
+Color Ranges:
+
 | Paws                 | Temp                     | Accel      | Air Q                       | Moist          | 
 |----------------------|--------------------------|------------|-----------------------------|----------------|
 | Green Range Values   | 21<Temp<24               |Accel<3     |40<Air Q<50                  |  Moist<90      | 
 | Yellow Range Values  | 18<Temp<21 or 24<Temp<26 |3<Accel<6   | 30<Air Q<40 or 50<Air Q<65  | 90<Moist<102   |
 | Red Range Values     | 15<Temp<18 or 26<Temp<28 |6<Accel<10  | 20<Air Q<30 or 65<Air Q<80  | 102<Moist<122  |
 | Black Range Values   | Temp<15 or 28<Temp       |10<Accel    | Air Q<20 or 80<Air Q        | 122<Moist      |
+
+La calidad del aire se calcula mediante la siguiente formula:
+
+air q=0.5 * (temp + 61.0 + ((temp-68.0)*1.2) + (moist*0.094))   
 
 
