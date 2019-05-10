@@ -19,8 +19,6 @@ Always use technology to improve the world, if you are a black hat or gray hat h
 * [AWS DynamoDB Setup](#aws-dynamodb-setup)
 * [WEB Interface Setup](#web-interface-setup)
 * [The Final Product](#the-final-product)
-* [Future Rollout](#future-rollout)
-* [References](#references)
 
 ## Introduction:
 
