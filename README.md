@@ -465,3 +465,29 @@ This is the code to send data to DynamoDB.
     ddb.putItem(params, function(err, data) {if (err) {} else {}});
     };
 
+## AWS SNS Setup:
+
+- In the SNS service we created a topic
+
+<img src = "https://i.ibb.co/2nZTHK0/17.png" width = "700">
+
+- In the SNS service we created a topic.
+
+<img src = "https://i.ibb.co/QCD3X5Z/18.png" width = "700">
+
+- Since we create the topic we can create subscriptions where we want the notification to arrive.
+
+<img src = "https://i.ibb.co/5hh3v6k/19.png" width = "700">
+
+- This is an example of all sides that we can send notifications.
+
+<img src = "https://i.ibb.co/F4WZ0xC/20.png" width = "700">
+
+- Save this ARN for your First Lambda:
+
+<img src = "https://i.ibb.co/xC8zm99/21.png" width = "700">
+
+## AWS DynamoDB Setup:
+
+
+
