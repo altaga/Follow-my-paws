@@ -166,10 +166,302 @@ Note: If you doubt which policy to grab the role, choose the policy (AWSIoTFullA
 
 ## AWS Lambda Setup
 
-- Creamos una Lambda como se muetra en la pantalla (es bastante intuitivo, no deberian de tener problemas).
+- We create a Lambda as shown on the screen (it is quite intuitive, should not have problems).
 
 <img src = "https://i.ibb.co/0jYH0Fz/15.png" width = "700">
 
-- La lambda debera verse de esta manera, la razon de usar una lambda sera porque necesitamos procesar los datos obtenidos del modulo para dar una respuesta con un mensaje y nuestra plataforma web (haga este proceso 2 veces debido a que vamos a configurar 2 lambdas para conectarnos a los servicios de SNS y DynamoDB)
+- The lambda should be seen in this way, the reason for using a lambda would be because we need to process the data obtained from the module to give a response with a message and our web platform (do this process 2 times because we are going to configure 2 lambdas for connect to the services of SNS and DynamoDB)
 
 <img src = "https://i.ibb.co/dptCCdH/16.png" width = "700">
+
+### First Lambda SNS Service:
+
+This is the code to send a notification to SNS, the TopicARN will be obtained later in the SNS configuration.
+
+    console.log('Loading function');
+    // Load the AWS SDK
+    var AWS = require("aws-sdk");
+
+    // Set up the code to call when the Lambda function is invoked
+    exports.handler = (event, context, callback) => {
+    // Load the message passed into the Lambda function into a JSON object 
+    var eventText = JSON.parse(JSON.stringify(event, null, 2));
+
+
+    // Log a message to the console; you can view this text in the Monitoring tab in the Lambda console or in the CloudWatch Logs console
+
+    // Create a string, extracting the click type and serial number from the message sent by the AWS IoT button
+
+    // Write the string to the console
+
+
+    var temp=parseInt(eventText.temperature)
+    var acc=parseInt(eventText.accelerometer)
+    var moi=parseInt(eventText.moisture)
+    var air=parseInt(eventText.air)
+    var id=eventText.ID
+
+    var myarray=[0,0,0,0]
+
+    if(temp<15)
+    {
+    myarray[0]=4  
+    }
+    else if(temp >= 15 && temp < 18) 
+    {
+    myarray[0]=3  
+    }
+    else if(temp >= 18 && temp < 19) 
+    {
+    myarray[0]=2  
+    }
+    else if(temp >= 21 && temp < 24)  
+    {
+    myarray[0]=1  
+    }
+    else if(temp >= 24 && temp < 26) 
+    {
+    myarray[0]=2  
+    }
+    else if(temp >= 26 && temp < 28)  
+    {
+    myarray[0]=3  
+    }
+    else if(temp >= 28) 
+    {
+    myarray[0]=4  
+    }
+
+    temp=temp*1.8+32
+
+    if(acc<3)
+    {
+    myarray[1]=1  
+    }
+    else if(acc >= 3 && acc < 6) 
+    {
+    myarray[1]=2  
+    }
+    else if(acc >= 6 && acc < 10) 
+    {
+    myarray[1]=3  
+    }
+    else if(acc >= 10)  
+    {
+    myarray[1]=4  
+    }
+
+
+    if(moi<20)
+    {
+    myarray[3]=4  
+    }
+    else if(moi >= 20 && moi < 30) 
+    {
+    myarray[3]=3  
+    }
+    else if(moi >= 30 && moi < 40) 
+    {
+    myarray[3]=2  
+    }
+    else if(moi >= 40 && moi < 50)  
+    {
+    myarray[3]=1  
+    }
+    else if(moi >= 50 && moi < 65) 
+    {
+    myarray[3]=2  
+    }
+    else if(moi >= 65 && moi < 80)  
+    {
+    myarray[3]=3  
+    }
+    else if(moi >= 80) 
+    {
+    myarray[3]=4  
+    }
+
+    air=0.5 * (temp + 61.0 + ((temp-68.0)*1.2) + (moi*0.094))        
+
+    if(air<90)
+    {
+    myarray[2]=1  
+    }
+    else if(air >= 90 && air < 102) 
+    {
+    myarray[2]=2  
+    }
+    else if(air >= 102 && air < 122) 
+    {
+    myarray[2]=3  
+    }
+    else if(air >= 122)  
+    {
+    myarray[2]=4  
+    }
+
+    var mess="";
+
+    if(myarray[3]==1 || myarray[2]==1 ||  myarray[1]==1 || myarray[0]==1)
+    {
+    mess="Your dog goes in perfect travel conditions"
+    }
+    if(myarray[3]==2 || myarray[2]==2 ||  myarray[1]==2 || myarray[0]==2)
+    {
+    mess="Your dog is in good condition"
+    }
+    if(myarray[3]==3 || myarray[2]==3 ||  myarray[1]==3 || myarray[0]==3)
+    {
+    mess="Your dog is fine but the travel conditions are not the best."
+    }
+    if(myarray[3]==4 || myarray[2]==4 ||  myarray[1]==4 || myarray[0]==4)
+    {
+    mess="Your dog is fine but travel conditions should improve"
+    }
+
+    // Create an SNS object
+    var sns = new AWS.SNS();
+
+    console.log("Received event:",JSON.stringify(myarray, null, 2),air);
+
+    var params = {
+    Message: mess,
+    TopicArn: "YOURSNSENDPOINT"
+    };
+    sns.publish(params, context.done);
+
+    };
+    
+### Second Lambda DynamoDB Service:
+
+This is the code to send data to DynamoDB.
+
+    console.log('Loading function');
+    var AWS = require("aws-sdk");
+    exports.handler = (event, context, callback) => {
+    var eventText = JSON.parse(JSON.stringify(event, null, 2));
+    var temp=parseInt(eventText.temperature)
+    var acc=parseInt(eventText.accelerometer)
+    var moi=parseInt(eventText.moisture)
+    var air=0
+    var id=eventText.ID
+
+    var myarray=[0,0,0,0]
+
+
+    if(temp<15)
+    {
+    myarray[0]=4  
+    }
+    else if(temp >= 15 && temp < 18) 
+    {
+    myarray[0]=3  
+    }
+    else if(temp >= 18 && temp < 19) 
+    {
+    myarray[0]=2  
+    }
+    else if(temp >= 21 && temp < 24)  
+    {
+    myarray[0]=1  
+    }
+    else if(temp >= 24 && temp < 26) 
+    {
+    myarray[0]=2  
+    }
+    else if(temp >= 26 && temp < 28)  
+    {
+    myarray[0]=3  
+    }
+    else if(temp >= 28) 
+    {
+    myarray[0]=4  
+    }
+
+    temp=temp*1.8+32
+
+    if(acc<3)
+    {
+    myarray[1]=1  
+    }
+    else if(acc >= 3 && acc < 6) 
+    {
+    myarray[1]=2  
+    }
+    else if(acc >= 6 && acc < 10) 
+    {
+    myarray[1]=3  
+    }
+    else if(acc >= 10)  
+    {
+    myarray[1]=4  
+    }
+
+
+    if(moi<20)
+    {
+    myarray[3]=4  
+    }
+    else if(moi >= 20 && moi < 30) 
+    {
+    myarray[3]=3  
+    }
+    else if(moi >= 30 && moi < 40) 
+    {
+    myarray[3]=2  
+    }
+    else if(moi >= 40 && moi < 50)  
+    {
+    myarray[3]=1  
+    }
+    else if(moi >= 50 && moi < 65) 
+    {
+    myarray[3]=2  
+    }
+    else if(moi >= 65 && moi < 80)  
+    {
+    myarray[3]=3  
+    }
+    else if(moi >= 80) 
+    {
+    myarray[3]=4  
+    }
+
+    air=0.5 * (temp + 61.0 + ((temp-68.0)*1.2) + (moi*0.094))        
+
+    if(air<90)
+    {
+    myarray[2]=1  
+    }
+    else if(air >= 90 && air < 102) 
+    {
+    myarray[2]=2  
+    }
+    else if(air >= 102 && air < 122) 
+    {
+    myarray[2]=3  
+    }
+    else if(air >= 122)  
+    {
+    myarray[2]=4  
+    }
+
+
+    // Set the region 
+    AWS.config.update({region: 'ap-northeast-1'});
+
+    // Create the DynamoDB service object
+    var ddb = new AWS.DynamoDB({apiVersion: '2012-08-10'});
+
+    var params = {
+    TableName: 'FMPtemp',
+    Item: {
+    'ID' : {S: id},
+    'Array' : {S: JSON.stringify(myarray, null, 2)}
+    }
+    };
+
+    // Call DynamoDB to add the item to the table
+    ddb.putItem(params, function(err, data) {if (err) {} else {}});
+    };
+
