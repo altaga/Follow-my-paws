@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+      <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script src="js/aws-sdk-2.7.16.min.js"></script>
+      <script src="js/credentials.js"></script>
+      <script>
+      var boxes=[1,2,2,4]
+      AWS.config.update({
+        region: regaws,
+        endpoint: endaws,
+        accessKeyId:publics,
+        secretAccessKey: ("/"+ privates)
+      });
+
+      var dynamodb = new AWS.DynamoDB();
+      var docClient = new AWS.DynamoDB.DocumentClient();
+      var params = {
+          TableName : "FMPtemp",
+          KeyConditionExpression: "#yr = :yyyy",
+          ExpressionAttributeNames:{
+              "#yr": "ID"
+          },
+          ExpressionAttributeValues: {
+              ":yyyy":"DOG1"
+          }
+      };
+
+      function refresh()
+      {
+          docClient.query(params, function(err, data)
+          {
+              var counte = data["Items"][0]["Array"]
+              boxes=JSON.parse(counte)
+              myFunction(boxes)
+          }
+          );
+      }
+
+
+
+
+      </script>
+</head>
+
+<body>
+
+      <div class="title">
+      <h1>Follow My Paws</h1>
+      <p>Powered by Soracom</p>
+
+
+      <div class="btn-r" id="btn1">
+        <p>Temp</p>
+          <i class="fa fa-paw" style="font-size:160px;"></i>
+      </div>
+      <div class="btn-y" id="btn2">
+        <p>Accel</p>
+          <i class="fa fa-paw" style="font-size:160px;"></i>
+      </div>
+      <div class="btn-g" id="btn3">
+        <p>Air Q</p>
+          <i class="fa fa-paw" style="font-size:160px;"></i>
+      </div>
+      <div class="btn-h" id="btn4">
+        <p>Moist</p>
+          <i class="fa fa-paw" style="font-size:160px;"></i>
+      </div>
+    </div>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script>
+
+  window.setInterval(function(){
+  refresh() }, 60000);
+
+  refresh()
+
+  function myFunction(input) {
+    if(input[0]==1)
+    {
+    document.getElementById("btn1").style.backgroundColor = "#34cb4a";
+    }
+    else if(input[0]==2)
+    {
+    document.getElementById("btn1").style.backgroundColor = "#fdbe40";
+    }
+    else if(input[0]==3)
+    {
+    document.getElementById("btn1").style.backgroundColor = "#fc625d";
+    }
+    else if(input[0]==4)
+    {
+    document.getElementById("btn1").style.backgroundColor = "black";
+    }
+    if(input[1]==1)
+    {
+    document.getElementById("btn2").style.backgroundColor = "#34cb4a";
+    }
+    else if(input[1]==2)
+    {
+    document.getElementById("btn2").style.backgroundColor = "#fdbe40";
+    }
+    else if(input[1]==3)
+    {
+    document.getElementById("btn2").style.backgroundColor = "#fc625d";
+    }
+    else if(input[1]==4)
+    {
+    document.getElementById("btn2").style.backgroundColor = "black";
+    }
+    if(input[2]==1)
+    {
+    document.getElementById("btn3").style.backgroundColor = "#34cb4a";
+    }
+    else if(input[2]==2)
+    {
+    document.getElementById("btn3").style.backgroundColor = "#fdbe40";
+    }
+    else if(input[2]==3)
+    {
+    document.getElementById("btn3").style.backgroundColor = "#fc625d";
+    }
+    else if(input[2]==4)
+    {
+    document.getElementById("btn3").style.backgroundColor = "black";
+    }
+    if(input[3]==1)
+    {
+    document.getElementById("btn4").style.backgroundColor = "#34cb4a";
+    }
+    else if(input[3]==2)
+    {
+    document.getElementById("btn4").style.backgroundColor = "#fdbe40";
+    }
+    else if(input[3]==3)
+    {
+    document.getElementById("btn4").style.backgroundColor = "#fc625d";
+    }
+    else if(input[3]==4)
+    {
+    document.getElementById("btn4").style.backgroundColor = "black";
+    }
+
+  }
+  </script>
+
+
+</body>
+
+</html>
