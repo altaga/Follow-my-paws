@@ -134,16 +134,16 @@ To communicate with AWS IoT we need to create a role in the IAM console in order
 
 - Within the role configuration we need to grant access to AWS IoT.
 
-<img src = "https://i.ibb.co/6sms88y/07.png" width = "700">
+<img src = "https://i.ibb.co/KKLBdg9/07.png" width = "700">
 
 - Here we can see the services that we can use with this role, in this case this policy is just an example.
 Note: If you doubt which policy to grab the role, choose the policy (AWSIoTFullAccess).
 
-<img src = "https://i.ibb.co/DKZR4v6/08.png" width = "700">
+<img src = "https://i.ibb.co/T09tFjR/08.png" width = "700">
 
 - We put the name we want to the new role.
 
-<img src = "https://i.ibb.co/cvvMg63/09.png" width = "700">
+<img src = "https://i.ibb.co/8XG3t5t/09.png" width = "700">
 
 - Entramos a la consola de AWS IoT y nos vamos a la seccion de "Settings".
 
