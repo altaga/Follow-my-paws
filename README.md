@@ -11,6 +11,7 @@ Always use technology to improve the world, if you are a black hat or gray hat h
 * [Materials](#materials)
 * [Hardware Hacking](#hardware-hacking)
 * [Wio Setup](#wio-setup)
+* [Wio Arduino Setup](#wio-arduino-setup)
 * [Soracom Platform Setup](#soracom-platform-setup)
 * [AWS IoT Setup](#aws-iot-setup)
 * [AWS Lambda Setup](#aws-lambda-setup)
@@ -99,7 +100,29 @@ Since we have the SIM card in the WIO LTE, we will connect the antennas to the s
 
 Once we finish this, we will have ready our module to use it with Arduino IDE.
 
+## Wio Arduino Setup:
 
+This is the official guide to install WIO LTE on Arduino IDE. I recommend that they follow it 100%, it is very clear and concise.
+
+https://github.com/Seeed-Studio/Wio_LTE_Arduino_Library
+
+## Soracom Platform Setup:
+
+It is very important to check that our SIM card is already attached to a group, in my case I call it Harvest Group.
+
+<img src = "https://i.ibb.co/q0ZXn00/01.png" width = "700">
+
+In the case that we do not have a group created, we will create one as shown in the image below, if we do not do this we will not be able to perform the AWS IoT configuration.
+
+<img src = "https://i.ibb.co/N6NXMjh/02.png" width = "700">
+
+Since the group was created, in my case we entered the group menu by pressing "Harvest Group" and once inside we will see the following.
+
+<img src = "https://i.ibb.co/QKbcXjD/03.png" width = "700">
+
+Within the group menu we will enter the option "SORACOM Funnel", this option will allow us the connectivity with the services of AWS, all the credentials will be obtained later in the AWS configuration, so do not close this tab (Please follow).
+
+<img src = "https://i.ibb.co/tb2xk57/05.png" width = "700">
 
 
 
