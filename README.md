@@ -124,6 +124,35 @@ Within the group menu we will enter the option "SORACOM Funnel", this option wil
 
 <img src = "https://i.ibb.co/tb2xk57/05.png" width = "700">
 
+## AWS IoT Setup
+
+To communicate with AWS IoT we need to create a role in the IAM console in order to authorize Soracom access to our console.
+
+- The first step is to create a role that allows us to communicate with AWS.
+
+<img src = "https://i.ibb.co/Yj0Gk39/06.png" width = "700">
+
+- Within the role configuration we need to grant access to AWS IoT.
+
+<img src = "https://i.ibb.co/6sms88y/07.png" width = "700">
+
+- Here we can see the services that we can use with this role, in this case this policy is just an example.
+Note: If you doubt which policy to grab the role, choose the policy (AWSIoTFullAccess).
+
+<img src = "https://i.ibb.co/DKZR4v6/08.png" width = "700">
+
+- We put the name we want to the new role.
+
+<img src = "https://i.ibb.co/cvvMg63/09.png" width = "700">
+
+- Entramos a la consola de AWS IoT y nos vamos a la seccion de "Settings".
+
+<img src = "https://i.ibb.co/hFcbkNT/10.png" width = "700">
+
+- Una vez en la seccion de "Settings" copiaremos el "Endpoint", este lo usaremos en la pestaña de la consola de Soracom.
+
+<img src = "https://i.ibb.co/9V4QT8s/11.png" width = "700">
+
 
 
 
