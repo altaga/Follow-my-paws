@@ -489,6 +489,29 @@ This is the code to send data to DynamoDB.
 
 ## AWS DynamoDB Setup:
 
+For this project and for our web implementation, we will need 2 tables created in DynamoDB, since one we will use as data storage and another we will use it for temporary variables that we can use in the WEB platform.
 
+- For this step, only two tables were created as shown in the image:
+
+<img src = "https://i.ibb.co/MfmpWQN/22.png" width = "700">
+
+## WEB Interface Setup:
+
+La plataforma web podra verse sencilla, pero tiene una implementacion muy interesante en su forma de interactuar con AWS.
+
+Uno de los problemas mas grandes al trabajar con una pagina web, es el tener variables temporales, debido a que cada vez que se actualice la pagina, perderemos toda la informacion almacenada por las variables, sin embargo en mi implementacion extraigo datos directamente desde DynamoDB, gracias al SDK de javascript que provee AWS, por lo tanto puedo almacenar informacion en una base de datos, como se ve en la imagen anteior en la base de datos que se llama "FMP", y a su ves guardar variables temporales y de acceso rapido para el despliegue y la actualizacion de la pagina web "FMPtemp".
+
+- Al momento de desplegar la pagina web, se llama a la base de datos FMPtemp para obtener el status en tiempo real de las mascotas y segun nuestro algorimo determie el estado de la mascota en general, se notificara por colores como se muestra en la imagen de abajo.
+
+https://i.ibb.co/VvZP2wV/web.png
+
+Cada uno de las patitas representa lo siguiente:
+
+| Paws                 | Temp                     | Accel      | Air Q                       | Moist          | 
+|----------------------|--------------------------|------------|-----------------------------|----------------|
+| Green Range Values   | 21<Temp<24               |Accel<3     |40<Air Q<50                  |  Moist<90      | 
+| Yellow Range Values  | 18<Temp<21 or 24<Temp<26 |3<Accel<6   | 30<Air Q<40 or 50<Air Q<65  | 90<Moist<102   |
+| Red Range Values     | 18<Temp<21 or 24<Temp<26 |6<Accel<10  | 20<Air Q<30 or 65<Air Q<80  | 102<Moist<122  |
+| Black Range Values   | Temp<15 or 28<Temp       |10<Accel    | Air Q<20 or 80<Air Q        | 122<Moist      |
 
 
