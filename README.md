@@ -53,34 +53,51 @@ To connect the sensors to the WIO, it is necessary that the sensors have a Grove
 
 https://www.seeedstudio.com/catalogsearch/result/index/?cat=890&q=Grove
 
-For this project, i buy the "Grove Starter Kit Plus" package which is shown in the following images.
+For this project, I buy the "Grove Starter Kit Plus" package which is shown in the following images.
 
-<img src="https://i.ibb.co/rw19pcY/IMG-20190417-034237.jpg" width="500">
+<img src = "https://i.ibb.co/rw19pcY/IMG-20190417-034237.jpg" width = "500">
 
 The Content:
 
-<img src="https://www.mouser.mx/images/microsites/grovekitgalileo.jpg" width="700">
+<img src = "https://www.mouser.mx/images/microsites/grovekitgalileo.jpg" width = "700">
 
-Las conexiones que se realizaron fueron las siguientes.
+The connections that were made were the following.
 
-<img src="https://i.ibb.co/5ryXPNm/Untitled-Sketch-bb.png" width="700">
+<img src = "https://i.ibb.co/5ryXPNm/Untitled-Sketch-bb.png" width = "700">
 
-El acelerometro Grove no tuvo problema en conectarse a la WIO debido a que este ya cuenta con su entrada Grove, el que se tuvo que hackear fue el DHT, ya que no tenia el DHT version Grove.
+The accelerometer Grove had no problem connecting to the WIO because it already has its Grove entry, which had to hack was the DHT, as it did not have the Grove version DHT.
 
 Accelerometer Grove Version:
 
-<img src="https://i.ibb.co/0ZT4Lfp/IMG-20190425-212309-2.jpg" width="700">
+<img src = "https://i.ibb.co/0ZT4Lfp/IMG-20190425-212309-2.jpg" width = "700">
 
 DHT No-Grove Version:
 
-<img src="https://i.ibb.co/68trBq1/IMG-20190425-212142-2.jpg" width="700">
+<img src = "https://i.ibb.co/68trBq1/IMG-20190425-212142-2.jpg" width = "700">
 
-This is how i connect the module to the grove cable:
+This is how to connect the module to the grove cable:
 
-<img src="https://i.ibb.co/FDw8Q32/IMG-20190507-194743-2.jpg" width="700">
+<img src = "https://i.ibb.co/FDw8Q32/IMG-20190507-194743-2.jpg" width = "700">
 
 ## Wio Setup:
 
+We will prepare the WIO LTE by connecting the SIM card in the appropriate slot.
+
+<img src = "https://i.ibb.co/87hmB2L/Slot.png" width = "700">
+
+Once we locate the Slot of the SIM card, insert the SIM card into the slot (yes, protect your IMEI and other data).
+
+<img src = "https://i.ibb.co/98H4NN6/DSC07614.png" width = "700">
+
+This will be seen once the card is inserted completely.
+
+<img src = "https://i.ibb.co/pvcWMz6/DSC07615.png" width = "700">
+
+Since we have the SIM card in the WIO LTE, we will connect the antennas to the slots shown in the image below.
+
+<img src = "https://i.ibb.co/nz3fwcW/Antenna.png" width = "700">
+
+Once we finish this, we will have ready our module to use it with Arduino IDE.
 
 
 
