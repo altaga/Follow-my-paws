@@ -95,7 +95,7 @@ This will be seen once the card is inserted completely.
 
 Since we have the SIM card in the WIO LTE, we will connect the antennas to the slots shown in the image below.
 
-<img src = "https://i.ibb.co/nz3fwcW/Antenna.png" width = "700">
+<img src = "https://i.ibb.co/1K1v2wD/Antenna.png" width = "700">
 
 Once we finish this, we will have ready our module to use it with Arduino IDE.
 
