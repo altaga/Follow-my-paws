@@ -1,8 +1,14 @@
 # Follow my paws
 
+## Introduction
+
 <img src="https://i.ibb.co/pwwW5qs/FMP.png" width="500">
 
-If you have a dog, cat or any pet that needs to go into a kennel when travelling and be left in the hands of parcel services, you know how stressfull and problematic it is for your precious friends. The main problem thus is: The horrid care pets get when they are transported in parcel services. Sometimes we need to send pets with parcel services. How can we be sure they're fine at all times? Take into consideration how baggage is treated.
+If you have a dog, cat or any pet that needs to go into a kennel when travelling, and be left in the hands of parcel services, you know how stressfull and problematic it is for your precious friends. 
+
+The main problem thus is: The horrid care pets get when they are transported in parcel services. 
+
+Sometimes we need to send pets with parcel services. How can we be sure they're fine at all times? Take into consideration how baggage is treated.
 
 Always use technology to improve the world, if you are a black hat or gray hat hacker please abstain at this point ......... or at least leave your star to make me feel less guilty XP.
 
@@ -20,13 +26,11 @@ Always use technology to improve the world, if you are a black hat or gray hat h
 * [WEB Interface Setup](#web-interface-setup)
 * [The Final Product](#the-final-product)
 
-## Introduction:
-
-The horrid care pets get when they are transported in parcel services. Sometimes we need to send pets with parcel services. How can we be sure they're fine at all times? Take into consideration how baggage is treated.
+## Solution
 
 <img src="https://i.ibb.co/rtkSBcX/177088359.jpg" width="500">
 
-I will make an integral IoT solution to monitor the pet’s environment, in order to ensure their well-being throughout their journey, all this also integrated with a cloud platform which, in addition to showing me the status of the package in real time, also sends notifications at the frequency that is convenient. 
+I will make an integral IoT solution to monitor the pet’s environment, in order to ensure their well-being throughout their journey. All this also integrated with a cloud platform which, in addition to showing the status of the package in real time, also sends notifications at the frequency that is convenient. 
 
 The current monitoring solutions are restricted to only lifeless packages, this making the continuous monitoring of pets a novelty. It is useful because thanks to this system pet owners can be 100% sure that their pets will be well and can monitor and follow them throughout their journey.
 
@@ -52,7 +56,7 @@ To connect the sensors to the WIO, it is necessary that the sensors have a Grove
 
 https://www.seeedstudio.com/catalogsearch/result/index/?cat=890&q=Grove
 
-For this project, I buy the "Grove Starter Kit Plus" package which is shown in the following images.
+For this project, I already had the "Grove Starter Kit Plus" package which is shown in the following images.
 
 <img src = "https://i.ibb.co/rw19pcY/IMG-20190417-034237.jpg" width = "500">
 
@@ -60,11 +64,11 @@ The Content:
 
 <img src = "https://www.mouser.mx/images/microsites/grovekitgalileo.jpg" width = "700">
 
-The connections that were made were the following.
+The connections that were made, were the following:
 
 <img src = "https://i.ibb.co/5ryXPNm/Untitled-Sketch-bb.png" width = "700">
 
-The accelerometer Grove had no problem connecting to the WIO because it already has its Grove entry, which had to hack was the DHT, as it did not have the Grove version DHT.
+The accelerometer included in the Grove package had no problem connecting to the WIO because it already has its Grove adapter, which I had to hack was the DHT, as we did not had the Grove's DHT.
 
 Accelerometer Grove Version:
 
@@ -96,17 +100,17 @@ Since we have the SIM card in the WIO LTE, we will connect the antennas to the s
 
 <img src = "https://i.ibb.co/1K1v2wD/Antenna.png" width = "700">
 
-Once we finish this, we will have ready our module to use it with Arduino IDE.
+Once we finish this, we will have our module ready to use it with Arduino IDE.
 
 ## Wio Arduino Setup:
 
-This is the official guide to install WIO LTE on Arduino IDE. I recommend that they follow it 100%, it is very clear and concise.
+This is the official guide to install the WIO LTE on the Arduino IDE. I recommend to follow it 100%, it is very clear and concise.
 
 https://github.com/Seeed-Studio/Wio_LTE_Arduino_Library
 
 ## Soracom Platform Setup:
 
-It is very important to check that our SIM card is already attached to a group, in my case I call it Harvest Group.
+It is very important to check that your SIM card is already attached to a group, in my case I call it Harvest Group.
 
 <img src = "https://i.ibb.co/q0ZXn00/01.png" width = "700">
 
@@ -118,7 +122,7 @@ Since the group was created, in my case we entered the group menu by pressing "H
 
 <img src = "https://i.ibb.co/QKbcXjD/03.png" width = "700">
 
-Within the group menu we will enter the option "SORACOM Funnel", this option will allow us the connectivity with the services of AWS, all the credentials will be obtained later in the AWS configuration, so do not close this tab (Please follow).
+Within the group menu we will enter the option "SORACOM Funnel", this option will allow us to access the connectivity with the services of AWS, all the credentials will be obtained later in the AWS configuration, so do not close this tab (Please follow).
 
 <img src = "https://i.ibb.co/tb2xk57/05.png" width = "700">
 
@@ -544,3 +548,5 @@ Video: Click on the image. (Time of Our Epic Demo)
 [![FMP - Demo](https://i.ibb.co/pwwW5qs/FMP.png)](https://www.youtube.com/watch?v=z4Z0MjegTp8)
 
 Sorry github does not allow embed videos.
+
+
