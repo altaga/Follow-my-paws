@@ -516,7 +516,7 @@ Each of the legs represents the following:
 
 Color Ranges:
 
-| Paws                 | Temp                     | Accel      | Air Q                       | Moist          | 
+| Colors\Paws                 | Temp                     | Accel      | Air Q                       | Moist          | 
 |----------------------|--------------------------|------------|-----------------------------|----------------|
 | Green Range Values   | 21<Temp<24               |Accel<3     |40<Air Q<50                  |  Moist<90      | 
 | Yellow Range Values  | 18<Temp<21 or 24<Temp<26 |3<Accel<6   | 30<Air Q<40 or 50<Air Q<65  | 90<Moist<102   |
